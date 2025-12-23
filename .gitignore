@@ -3,6 +3,6 @@ venv/
 env/
 __pycache__/
 *.py[cod]
-backend/app/data/*.db
+backend/data/*.db
 .DS_Store
 
