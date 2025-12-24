@@ -2,6 +2,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends, Query, HTTPException
 from database import create_db, get_session
+from fastapi.middleware.cors import CORSMiddleware
 
 from typing import List , Optional
 from sqlmodel import Session, select, col
@@ -13,6 +14,15 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan) #create database for 1 time
+
+#allow all for only test case
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"], 
+    allow_headers=["*"], 
+)
 
 @app.get("/")
 def read_root():
@@ -58,3 +68,4 @@ def get_transaction_detail(transaction_id: str, session: Session = Depends(get_s
     if not item:
         raise HTTPException(status_code=404, detail="Transaction not found")
     return item
+
