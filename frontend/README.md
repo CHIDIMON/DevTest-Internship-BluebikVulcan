@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Setup
 ```
+# clone the repository
+git clone [https://github.com/CHIDIMON/Thirasak.DevTest-Internship-BluebikVulcan.git](https://github.com/CHIDIMON/Thirasak.DevTest-Internship-BluebikVulcan.git)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# enter project directory
+cd Thirasak.DevTest-Internship-BluebikVulcan
+```
+Option 1: macOS / Linux
+```
+Backend Setup (Terminal 1)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# enter backend directory
+cd backend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# create & activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
 
-## Learn More
+# install dependencies
+pip install -r requirements.txt
 
-To learn more about Next.js, take a look at the following resources:
+# serve backend at localhost:8000
+fastapi dev app/main.py
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend Setup (Terminal 2)
 
-## Deploy on Vercel
+# enter frontend directory
+cd ../frontend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# install dependencies
+npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# create env file pointing to local backend
+echo "NEXT_PUBLIC_API_URL=[http://127.0.0.1:8000](http://127.0.0.1:8000)" > .env.local
+
+# serve frontend with hot reload at localhost:3000
+npm run dev
+```
+Option 2: Windows (PowerShell)
+```
+Backend Setup (Terminal 1)
+
+# enter backend directory
+cd backend
+
+# create & activate virtual environment
+python -m venv venv
+.\venv\Scripts\activate
+
+# install dependencies
+pip install -r requirements.txt
+
+# serve backend at localhost:8000
+python -m fastapi dev app/main.py
+
+
+Frontend Setup (Terminal 2)
+
+# enter frontend directory
+cd ..\frontend
+
+# install dependencies
+npm install
