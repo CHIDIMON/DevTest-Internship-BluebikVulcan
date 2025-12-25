@@ -1,7 +1,7 @@
 Setup
 ```
 # clone the repository
-git clone [https://github.com/CHIDIMON/Thirasak.DevTest-Internship-BluebikVulcan.git](https://github.com/CHIDIMON/Thirasak.DevTest-Internship-BluebikVulcan.git)
+git clone https://github.com/CHIDIMON/Thirasak.DevTest-Internship-BluebikVulcan.git
 
 # enter project directory
 cd Thirasak.DevTest-Internship-BluebikVulcan
